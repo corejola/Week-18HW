@@ -1,0 +1,19 @@
+{
+  "name": "week-18hw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corejola/Week-18HW.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/corejola/Week-18HW/issues"
+  },
+  "homepage": "https://github.com/corejola/Week-18HW#readme"
+}
