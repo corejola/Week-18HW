@@ -7,4 +7,6 @@ router.get('/', indexPage.homePage);
 
 router.get('/scrape', indexPage.scrape)
 
+router.get('/articles', indexPage.articles)
+
 module.exports = router;
