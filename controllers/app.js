@@ -43,8 +43,8 @@ exports.scrape = function (req, res) {
         });
 
         console.log("thrasher scraped!")
-        res.send("Scrape Complete");
-
+        // res.send("Scrape Complete");
+        alert("Scrape Complete");
 
     });
 };
@@ -63,3 +63,6 @@ exports.articles = function (req, res) {
         });
 };
 
+exports.saved = function (req, res) {
+    // saved articles
+}

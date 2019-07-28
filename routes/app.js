@@ -9,4 +9,6 @@ router.get('/scrape', indexPage.scrape)
 
 router.get('/articles', indexPage.articles)
 
+router.get('/saved', indexPage.saved) // routing for articles saved.
+
 module.exports = router;
