@@ -1,0 +1,24 @@
+.background{
+    background-color: black;
+}
+
+.custom-text{
+    color:white;
+}
+
+p {
+    color: white;
+}
+
+.text-area{
+    height: 50%;
+    font-size: 18px;
+    /* background: #e0ffc7 url(https://media.giphy.com/media/26FL7OPVJqJ6d3eLK/giphy.gif)  */
+}
+
+#articles {
+    display: inline-block;
+    overflow: auto;
+    width: 60%;
+    height: 700px;
+  }

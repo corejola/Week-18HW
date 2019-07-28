@@ -11,7 +11,7 @@ exports.homePage = function (req, res) {
 }
 
 exports.scrape = function (req, res) {
-    console.log("scraped_")
+    // console.log("scraped_")
 
     axios.get("http://www.thrashermagazine.com/").then(function (response) {
 
@@ -23,12 +23,12 @@ exports.scrape = function (req, res) {
 
             let title = $(element).find("a").text();
             let link = $(element).find("a").attr("href");
-            console.log("title: " + title)
+            // console.log("title: " + title)
             console.log("link: " + link)
 
             result.push({
                 title: title,
-                link: link
+                link: "http://www.thrashermagazine.com" + link
             })
 
             db.Article.create(result)
@@ -39,13 +39,33 @@ exports.scrape = function (req, res) {
                 .catch(function (err) {
                     console.log(err);
                 });
-            console.log(result)
+            // console.log(result)
         });
 
         console.log("thrasher scraped!")
-        res.send("Scrape Complete");
-
+        // res.send("Scrape Complete");
+        // alert("Scrape Complete");
 
     });
 };
 
+exports.articles = function (req, res) {
+    db.Article.find({})
+        .then(function (dbArticle) {
+            // res.json(dbArticle);
+            let thrasher = {
+                article: dbArticle
+            };
+            res.render('index', thrasher);
+        })
+        .catch(function (err) {
+            res.json(err);
+        });
+};
+
+exports.saved = function (req, res) {
+    // saved articles
+    db.Article.updateOne({
+
+    })
+}
