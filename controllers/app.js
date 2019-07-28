@@ -7,11 +7,11 @@ const db = require("../models");
 
 
 exports.homePage = function (req, res) {
-    res.render('index')
+    res.redirect('/articles')
 }
 
 exports.scrape = function (req, res) {
-    console.log("scraped_")
+    // console.log("scraped_")
 
     axios.get("http://www.thrashermagazine.com/").then(function (response) {
 
@@ -23,8 +23,8 @@ exports.scrape = function (req, res) {
 
             let title = $(element).find("a").text();
             let link = $(element).find("a").attr("href");
-            console.log("title: " + title)
-            console.log("link: " + link)
+            // console.log("title: " + title)
+            // console.log("link: " + link)
 
             result.push({
                 title: title,
@@ -39,7 +39,7 @@ exports.scrape = function (req, res) {
                 .catch(function (err) {
                     console.log(err);
                 });
-            console.log(result)
+            // console.log(result)
         });
 
         console.log("thrasher scraped!")
@@ -53,7 +53,10 @@ exports.articles = function (req, res) {
     db.Article.find({})
         .then(function (dbArticle) {
             // res.json(dbArticle);
-            res.render('index', dbArticle);
+            let thrasher = {
+                article: dbArticle
+            };
+            res.render('index', thrasher);
         })
         .catch(function (err) {
             res.json(err);
