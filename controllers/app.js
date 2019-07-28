@@ -7,7 +7,7 @@ const db = require("../models");
 
 
 exports.homePage = function (req, res) {
-    res.redirect('/articles')
+    res.render('index')
 }
 
 exports.scrape = function (req, res) {
@@ -24,11 +24,11 @@ exports.scrape = function (req, res) {
             let title = $(element).find("a").text();
             let link = $(element).find("a").attr("href");
             // console.log("title: " + title)
-            // console.log("link: " + link)
+            console.log("link: " + link)
 
             result.push({
                 title: title,
-                link: link
+                link: "http://www.thrashermagazine.com" + link
             })
 
             db.Article.create(result)
